@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Formulario HTML5 y CSS3</title>
+    <style>
+        /* Estilos generales del formulario */
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        fieldset {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        legend {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input,
+        select {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-bottom: 20px;
+            background-color: #034705;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Estilos específicos de elementos */
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #2ecc71;
+        }
+
+        input:invalid {
+            background-color: red;
+        }
+
+        details {
+            max-width: 500px;
+
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 0 auto;
+        }
+
+        /* Estilo del botón summary cuando el elemento details está cerrado */
+        summary {
+            background-color: #f2f2f2;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Estilo del botón summary cuando el elemento details está abierto */
+        summary:active,
+        summary:focus,
+        summary:hover {
+            background-color: #e6e6e6;
+        }
+
+        @supports (-webkit-appearance:none) {
+            input[type="text"] {
+                -webkit-appearance: none;
+                background-color: #f1c40f;
+            }
+        }
+
+        @supports (-moz-appearance:none) {
+            input[type="email"] {
+                -moz-appearance: none;
+                background-color: #3498db;
+                color: white;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <fieldset>
+            <legend>Datos personales</legend>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required tabindex="2">
+            <label for="correo">Correo electrónico:</label>
+            <input type="email" id="correo" name="correo" required tabindex="1">
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" name="edad" min="18" max="100" required tabindex="3">
+        </fieldset>
+        <fieldset>
+            <legend>Datos de la cuenta</legend>
+            <label for="usuario">Nombre de usuario:</label>
+            <input type="text" id="usuario" name="usuario" disabled accesskey="j">
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required accesskey="g">
+            <label for="pais">País:</label>
+            <select id="pais" name="pais">
+                <option value="">Seleccione una opción</option>
+                <option value="España">España</option>
+                <option value="México">México</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Colombia">Colombia</option>
+                <option value="Perú">Perú</option>
+            </select>
+        </fieldset>
+        <button type="submit" value="Enviar">Enviar</button>
+    </form>
+    <details>
+        <summary>Información adicional</summary>
+        <p>Este es un ejemplo de información adicional que se puede mostrar y ocultar haciendo clic en el botón de
+            resumen.
+        </p>
+    </details>
+
+    <dialog id="favDialog" open>
+        <p>Esto es un dialog</p>
+        <button id="cancel" type="reset">Cancel</button>
+    </dialog>
+
+
+    <script>
+        (function () {
+            var cancelButton = document.getElementById('cancel');
+
+            var favDialog = document.getElementById('favDialog');
+
+            // Form cancel button closes the dialog box
+            cancelButton.addEventListener('click', function () {
+                favDialog.close();
+            });
+
+        })();
+    </script>
+</body>
+
+</html>
